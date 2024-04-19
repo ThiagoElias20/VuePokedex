@@ -1,16 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+      <PokemonItem v-for="pokemon in pokemons.results" :key="pokemon.name" :pokemon="pokemon" />
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+import PokemonItem from './components/PokemonItem.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PokemonItem
+  },
+
+  data() {
+    return {
+      pokemons: [],
+    }
+  },
+
+  mounted() {
+    axios.get("https://pokeapi.co/api/v2/pokemon/?limit=1302").then(response => {
+      this.pokemons = response.data;
+    })
   }
+
 }
 </script>
 
