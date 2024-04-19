@@ -1,7 +1,7 @@
 <template>
     <v-container>
-      <img :src="getPokemonImageUrl(pokemon.url)" :alt="pokemon.name">
-      <h2>Pokemon {{ pokemon.name }}</h2>
+      <img :src="getPokemonImageUrl(pokemon.url)" :alt="pokemon.name"> <!--Img do Pokemon-->
+      <h2>{{ pokemon.name }}</h2> <!--Nome do Pokemon-->
     </v-container>
 </template>
 
